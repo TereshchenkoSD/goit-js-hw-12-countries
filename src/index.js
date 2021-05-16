@@ -1,4 +1,5 @@
 import './styles.css';
+import countryCardTpl from '../src/templates/country-card.hbs';
 const axios = require('axios');
 
 const refs = {
@@ -10,12 +11,15 @@ const refs = {
 //     return response.json();
 //   })
 //   .then(country => {
-//     console.log(country);
+//     const markup = countryCardTpl(country);
+//     console.log(markup);
 //   });
 
 axios.defaults.baseURL = 'https://restcountries.eu/rest/v2';
 
 axios
   .get('/name/switzerland')
-  .then(response => console.group(response))
+  .then(response => {
+    console.log(countryCardTpl(response.data));
+  })
   .catch(error => console.log(error));

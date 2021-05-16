@@ -2,7 +2,9 @@
   <h2 class='contry__name'>
     {{name}}
   </h2>
-  <svg></svg>
+  <svg class='country__flag-icon'>
+    <use href='{{flag}}'></use>
+  </svg>
   <p class='country__capital'>
     Capital:{{capital}}
   </p>
@@ -12,9 +14,9 @@
   <p class='country__languages-container'>
     Languages:
   </p>
-  <ul class='country__languages-list'>
-    {{!-- {{#each this}} --}}
-    <li class='country__language'></li>
-    {{!-- {{#each}} --}}
-  </ul>
+  {{#each languages}}
+    <ul class='country__languages-list'>
+      <li class='country__language'>{{language.name}}</li>
+    </ul>
+  {{/each}}
 </div>
