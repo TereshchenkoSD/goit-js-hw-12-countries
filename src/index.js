@@ -1,25 +1,35 @@
-import './styles.css';
-import countryCardTpl from '../src/templates/country-card.hbs';
-const axios = require('axios');
+import './styles/styles.css';
+import countryCardTpl from './templates/country-card.hbs';
+import countryListTpl from './templates/country-list.hbs';
+import fetchCountries from './js/fetchCountries';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'https://restcountries.eu/rest/v2/name';
 
 const refs = {
   searchInput: document.querySelector('.search-input'),
+  cardContainer: document.querySelector('.card-container'),
 };
 
-// fetch('https://restcountries.eu/rest/v2/name/russia')
-//   .then(response => {
-//     return response.json();
-//   })
-//   .then(country => {
-//     const markup = countryCardTpl(country);
-//     console.log(markup);
-//   });
+// refs.searchInput.addEventListener('input', onSearch);
 
-axios.defaults.baseURL = 'https://restcountries.eu/rest/v2';
+// function onSearch() {
+//   console.log();
+// }
 
-axios
-  .get('/name/switzerland')
-  .then(response => {
-    console.log(countryCardTpl(response.data));
-  })
-  .catch(error => console.log(error));
+// const renderCountryCard = data => {
+//   const markup = countryCardTpl(data);
+//   refs.cardContainer.insertAdjacentHTML('afterbegin', markup);
+// };
+
+// const handleFetchError = error => {
+//   console.log(error);
+// };
+
+// fetchCountries('canada').then(renderCountryCard).catch(handleFetchError);
+
+const renderMarkup = data => {
+  const countryArray = data.length;
+  const countryCardMarkup = countryCardTpl(data);
+  const countryListMarkup = countryListTpl(data);
+};
