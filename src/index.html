@@ -7,9 +7,20 @@
     <title>Webpack Starter Kit</title>
   </head>
   <body>
-    <div class="search-container">
-      <input type="text" class="search-input" name="query" />
+    <div class="search__container">
+      <h1 class="search__header">Another place for visiting?</h1>
+      <div class="search__form-container">
+        <form class="search__form">
+          <input
+            type="text"
+            class="search__input js-search__input"
+            name="query"
+            placeholder="Search"
+            autocomplete="off"
+          />
+        </form>
+      </div>
     </div>
-    <div class="card-container"></div>
+    <div class="card-container js-card-container"></div>
   </body>
 </html>
